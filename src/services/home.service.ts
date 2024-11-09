@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "./base.service";
-import { GlobalDataProps, TrendingCoinProps } from "@/types";
+import { GlobalDataProps, TrendingCoinProps, LargestGainer } from "@/types";
 
 const getGlobalMarketData = async () => {
   const response = await api.get("/global");
@@ -23,7 +23,7 @@ const getLargestGainer = async () => {
     },
   });
 
-  return response.data;
+  return response.data as LargestGainer[];
 };
 
 export const useGlobalMarketData = () => {
@@ -49,10 +49,10 @@ export const useTrendingData = () => {
 };
 
 export const useLargestGainerData = () => {
-  const { data: largestGainer } = useQuery({
+  const { data } = useQuery({
     queryKey: ["largest-gainer"],
     queryFn: () => getLargestGainer(),
   });
 
-  return { largestGainer };
+  return { data };
 };
