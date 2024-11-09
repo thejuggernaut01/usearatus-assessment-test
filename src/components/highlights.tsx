@@ -6,6 +6,7 @@ import TradingVol24h from "./cards/trading-vol-24h";
 import { useGlobalMarketData } from "@/services/home.service";
 import Trending from "./cards/trending";
 import LoadingSkeleton from "./custom/loading-skeleton";
+import LargestGainers from "./cards/largest-gainers";
 
 const Highlights = () => {
   const [hideDetails, setHideDetails] = useState(true);
@@ -72,8 +73,8 @@ const Highlights = () => {
         </div>
 
         {showHighlight && (
-          <div className="space-y-1">
-            <div className="space-y-1">
+          <div className="space-y-1 xl:space-y-0 xl:flex xl:gap-x-2">
+            <div className="space-y-1 xl:flex-1">
               <MarketCap
                 totalMarketCap={totalMarketCap}
                 marketCapChange24={marketCapChange24}
@@ -81,6 +82,7 @@ const Highlights = () => {
               <TradingVol24h volume={volume} />
             </div>
             <Trending />
+            <LargestGainers />
           </div>
         )}
       </div>

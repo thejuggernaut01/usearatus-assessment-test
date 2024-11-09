@@ -8,7 +8,7 @@ type TradingVol24hProps = {
 
 const TradingVol24h: React.FC<TradingVol24hProps> = ({ volume }) => {
   return (
-    <Card>
+    <Card className="h-1/2">
       <CardContent className="space-y-1 flex flex-col justify-center ">
         <CardTitle className="text-lg font-semibold">
           {BaseHelper.currencyFormatter(volume)}

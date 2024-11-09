@@ -1,19 +1,17 @@
 import React from "react";
 import { Card, CardContent, CardTitle } from "../ui/card";
-import { ChevronRight } from "lucide-react";
 import { useTrendingData } from "@/services/home.service";
 import Image from "next/image";
 import BaseHelper from "@/utils/helper";
 import { cn } from "@/lib/utils";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, ChevronRight } from "lucide-react";
 
 const Trending = () => {
   const { trendingData } = useTrendingData();
-  // console.log(trendingData);
 
   return (
     <>
-      <Card>
+      <Card className="xl:flex-1">
         <CardContent className="space-y-5 p-0 py-4">
           <div className="flex items-center justify-between px-4">
             <CardTitle className="text-lg font-semibold">🔥 Trending</CardTitle>

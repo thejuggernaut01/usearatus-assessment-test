@@ -12,6 +12,20 @@ const getTrendingData = async () => {
   return response.data.coins as TrendingCoinProps[];
 };
 
+const getLargestGainer = async () => {
+  const response = await api.get("/coins/markets", {
+    params: {
+      vs_currency: "usd",
+      order: "market_cap_desc",
+      per_page: 100,
+      page: 1,
+      sparkline: false,
+    },
+  });
+
+  return response.data;
+};
+
 export const useGlobalMarketData = () => {
   const {
     data: globalMarketData,
@@ -32,4 +46,13 @@ export const useTrendingData = () => {
   });
 
   return { trendingData };
+};
+
+export const useLargestGainerData = () => {
+  const { data: largestGainer } = useQuery({
+    queryKey: ["largest-gainer"],
+    queryFn: () => getLargestGainer(),
+  });
+
+  return { largestGainer };
 };

@@ -13,7 +13,7 @@ const MarketCap: React.FC<MarketCapProps> = ({
   marketCapChange24,
 }) => {
   return (
-    <Card>
+    <Card className="h-1/2">
       <CardContent className="space-y-1 flex flex-col justify-center ">
         <CardTitle className="text-lg font-semibold">
           {BaseHelper.currencyFormatter(totalMarketCap)}
@@ -29,7 +29,7 @@ const MarketCap: React.FC<MarketCapProps> = ({
               )}
 
               <span className="text-[#dc2626]">
-                {marketCapChange24.toFixed(1)}%
+                {marketCapChange24.toFixed(1).replace("-", "")}%
               </span>
             </p>
           )}
