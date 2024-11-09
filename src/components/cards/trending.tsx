@@ -5,6 +5,7 @@ import { useTrendingData } from "@/services/home.service";
 import Image from "next/image";
 import BaseHelper from "@/utils/helper";
 import { cn } from "@/lib/utils";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 const Trending = () => {
   const { trendingData } = useTrendingData();
@@ -41,19 +42,29 @@ const Trending = () => {
 
                   <div className="flex items-center gap-x-2">
                     <p>{BaseHelper.currencyFormatter(data.item.data.price)}</p>
-                    <p
-                      className={cn(
-                        data.item.data.price_change_percentage_24h?.usd &&
-                          data.item.data.price_change_percentage_24h?.usd > 0
-                          ? "text-price-up"
-                          : "text-price-down",
-                      )}
-                    >
-                      {data.item.data.price_change_percentage_24h.usd
-                        ?.toFixed(1)
-                        .replace("-", "")}
-                      %
-                    </p>
+
+                    {data.item.data.price_change_percentage_24h?.usd && (
+                      <div className="flex items-center">
+                        {data.item.data.price_change_percentage_24h?.usd > 0 ? (
+                          <ChevronUp size={16} stroke="#16a34a" />
+                        ) : (
+                          <ChevronDown size={16} stroke="#dc2626" />
+                        )}
+
+                        <p
+                          className={cn(
+                            data.item.data.price_change_percentage_24h?.usd > 0
+                              ? "text-price-up"
+                              : "text-price-down",
+                          )}
+                        >
+                          {data.item.data.price_change_percentage_24h.usd
+                            ?.toFixed(1)
+                            .replace("-", "")}
+                          %
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
