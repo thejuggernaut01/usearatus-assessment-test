@@ -25,9 +25,14 @@ const LargestGainers = () => {
             <CardTitle className="text-lg font-semibold">
               🚀 Largest Gainer
             </CardTitle>
-            <div className="flex items-center">
-              <p className="text-gray-700 text-sm">view more</p>
-              <ChevronRight size={13} stroke="#374151" />
+            <div className="flex items-center cursor-pointer hover:text-green-500">
+              <p className="text-gray-700 text-sm hover:text-green-500">
+                view more
+              </p>
+              <ChevronRight
+                size={13}
+                className="text-gray-700 text-sm hover:text-green-500"
+              />
             </div>
           </div>
 

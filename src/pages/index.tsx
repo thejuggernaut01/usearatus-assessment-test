@@ -1,4 +1,5 @@
 import Highlights from "@/components/highlights";
+import TokenList from "@/components/token-list";
 import { cn } from "@/lib/utils";
 import { Sora } from "next/font/google";
 
@@ -10,8 +11,12 @@ const sora = Sora({
 
 export default function Home() {
   return (
-    <main className={cn("w-[95%] md:w-[90%] mx-auto", sora.className)}>
+    <main
+      className={cn("w-[95%] md:w-[90%] mx-auto space-y-10", sora.className)}
+    >
       <Highlights />
+
+      <TokenList />
     </main>
   );
 }

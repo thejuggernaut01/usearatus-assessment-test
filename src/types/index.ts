@@ -81,3 +81,16 @@ export type LargestGainer = {
   roi: number | null;
   last_updated: string;
 };
+
+// Define the data type
+export type Token = {
+  id: number;
+  name: string;
+  price: number;
+  change1h: number;
+  change24h: number;
+  change7d: number;
+  volume24h: number;
+  marketCap: number;
+  last7Days: { x: string; y: number }[];
+};

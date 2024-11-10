@@ -5,7 +5,6 @@ import MarketCap from "./cards/market-cap";
 import TradingVol24h from "./cards/trading-vol-24h";
 import { useGlobalMarketData } from "@/services/home.service";
 import Trending from "./cards/trending";
-import LoadingSkeleton from "./custom/loading-skeleton";
 import LargestGainers from "./cards/largest-gainers";
 
 const Highlights = () => {
@@ -14,7 +13,7 @@ const Highlights = () => {
 
   const { globalMarketData, isLoading, error } = useGlobalMarketData();
 
-  if (isLoading) return <LoadingSkeleton />;
+  if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching market data</div>;
 
   const totalMarketCap = globalMarketData?.total_market_cap?.usd;
