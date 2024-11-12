@@ -42,8 +42,8 @@ The user interface should closely resemble the CoinGecko homepage and should inc
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/thejuggernaut01/usearatus-assessment-test
-   cd usearatus-assessment-test
+   git clone https://github.com/thejuggernaut01/fungible-token-tracker
+   cd fungible-token-tracker
    ```
 
 2. **Install Dependencies**:
@@ -76,11 +76,16 @@ The user interface should closely resemble the CoinGecko homepage and should inc
 
 ```plaintext
 src
-├── components      # UI Components
-├── pages           # Next.js Page Routes
-├── services        # API Services
-├── styles          # Styles
-└── utils           # Utility Functions
+├── components      
+├── config
+├── context
+├── data
+├── lib
+├── pages           
+├── services        
+├── styles          
+├── types
+└── utils           
 ```
 
 ## Functionality Details
